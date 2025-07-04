@@ -93,7 +93,7 @@ public class UserController{
     }
 
     @PostMapping("/admin/register")
-   // @PreAuthorize("hasRole('ADMIN')") //  Only admins can call this
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> registerAdmin(@RequestBody User user) {
         log.info("Admin registration requested by: {}", user.getEmail());
         String result = userService.registerAdmin(user);
